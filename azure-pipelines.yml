@@ -14,7 +14,7 @@ steps:
 - task: TestZscalerIaCScan@1
   inputs:
     region: 'CUSTOM'
-    failBuild: true
+    failBuild: false
     #scale
     #clientId: 'FKxGqFUPdftHPcAMINkXoe7sZaeOm8dH'
     #clientSecret: 'DhaY8LDfDrj2qVL1GDMovJg9RYkNr8js4YhlWeYHHjrvv6xOQLz41JtUVV4ClhGG'
