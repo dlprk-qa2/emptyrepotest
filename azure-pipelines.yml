@@ -1,0 +1,58 @@
+## Starter pipeline
+
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: macos-latest
+
+steps:
+- task: TestZscalerIaCScan@1
+  inputs:
+    region: 'CUSTOM'
+    failBuild: true
+    #scale
+    #clientId: 'FKxGqFUPdftHPcAMINkXoe7sZaeOm8dH'
+    #clientSecret: 'DhaY8LDfDrj2qVL1GDMovJg9RYkNr8js4YhlWeYHHjrvv6xOQLz41JtUVV4ClhGG'
+    #clientId: 'wVj57xTAut67xkTbnEoazASJ7VOys3X7'
+    #clientSecret: '3b6Z_yZuBbwaH1_8gXxsrSe_aGIqhBLfosU1cko3d3WUNHOB-uGytBvPRvX739xS'
+    #EU
+    #clientId: 'qqF93NhTpKLclT2mIGQG2MBMhSeWgh9z'
+    #clientSecret: 'Vx30EZ2_TzbgQBBO3P03sfVdmkAlD4xOqaEHDcLiFbaWDflzoJAS1oFAh3zm4yxE'
+    #clientId: 'EYbCP1hyJp1Zp0o7hPorWDM1u01QSk2Y'
+    #clientSecret: 'FJpWRBwdph3rwX3jTtXwWWTpB9ud9LvDSsK6_zjIr7BQy5uh_225qkpqlpw4vaUL'
+    #int
+    clientId: 'sTfzX3UQZJ1rNcTplacWdYgRoasDO0Sr'
+    clientSecret: 'CdT8ctkb-OsW_7Ci1P7stlYoH0m4ewb-2z4wobqpsXEZMUnVCrotFWwzwvTzcZ6T'
+    #US old
+    #clientId: 'pzgnqvelWDdsIknylsAQ5JvhDJnjBSFK'
+    #clientSecret: 'y65EU6dTsVcMMRWeGJ96R3oq7DqogqA46MkJzLT5ZCKgnx-ViLKxLcFjVPVLNW1a' 
+    
+  env:
+     # AUTH_URL: "https://auth.eu.zpccloud.net"
+      #API_URL: "https://api.eu.zpcccloud.net" 
+      AUTH_URL: "https://int-auth.zscwp.io"
+      API_URL: "https://int.api.zscwp.io" 
+      #AUTH_URL: "https://scale-auth.zscwp.net"
+      #API_URL: "https://scale.api.zscwp.net"
+      REPORT_URL: "https://int.iacplugin.zscwp.io/"
+#- task: ZscalerIaCScan@1
+#  inputs:
+#    region: 'US'
+#    outputFormat: json
+#    failBuild: true
+#    clientId: 'pzgnqvelWDdsIknylsAQ5JvhDJnjBSFK'
+#    clientSecret: 'y65EU6dTsVcMMRWeGJ96R3oq7DqogqA46MkJzLT5ZCKgnx-ViLKxLcFjVPVLNW1a'  
+
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
